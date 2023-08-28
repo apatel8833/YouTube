@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { YOUTUBE_API } from '../utils/constants';
+import { YOUTUBE_SEARCH_VIDEO_WITH_QUERY_API } from '../utils/constants';
 import axios from 'axios';
 import { formatCompactNumber, formatDate } from '../utils/helper';
 import Loader from './Loader';
@@ -19,8 +20,8 @@ const Body = () => {
 
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`${YOUTUBE_API}&pageToken=${nextPageToken}`);
-            console.log(data.items);
+            const { data } = await axios.get(`${YOUTUBE_SEARCH_VIDEO_WITH_QUERY_API}&q=Isro`);
+            console.log("news",data.items);
 
             setFirst((prev) => [...prev, ...data.items]);
             setLoader(false)
@@ -60,7 +61,7 @@ const Body = () => {
         <>
             <div className='body'>
                 <div className='btns'>
-                    <ul>
+                <ul>
                         <Link href="/"><button value="All" >All</button></Link>
                         <Link href="/News"> <li>News</li></Link>
                         <Link href="/Gaming"><li>Gaming</li></Link>
@@ -83,16 +84,16 @@ const Body = () => {
                 {
                     first.map((elm, i) => {
                         return (
-                            <Link className='card' key={i} href={`/watch/${elm.id}`}>
+                            <Link className='card' key={i} href="#">
 
-                                    <img src={elm.snippet.thumbnails.standard.url} alt='image'></img>
+                                    <img src={elm.snippet.thumbnails.high.url} alt='image'></img>
 
                                     <ul className='flex justify-start items-start'>
-                                        <img className='rounded-full w-7 h-7 mt-2 mr-2' alt='thumbnail' src={elm.snippet.thumbnails.standard.url} />
+                                        <img className='rounded-full w-7 h-7 mt-2 mr-2' alt='thumbnail' src={elm.snippet.thumbnails.default.url} />
                                         <div>
                                             <li className='font-semibold py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5'>{elm.snippet.title}</li>
                                             <li className='text-gray-500 text-[13px]'>{elm.snippet.channelTitle}</li>
-                                            <li className='text-gray-500 text-[13px]'>{formatCompactNumber(elm.statistics.viewCount)} views  {formatDate((Math.abs(new Date(elm.snippet.publishedAt) - new Date()) / (60 * 60 * 24 * 1000)).toFixed(0))} ago</li>
+                                            {/* <li className='text-gray-500 text-[13px]'>{formatCompactNumber(elm.statistics.viewCount)} views  {formatDate((Math.abs(new Date(elm.snippet.publishedAt) - new Date()) / (60 * 60 * 24 * 1000)).toFixed(0))} ago</li> */}
                                         </div>
                                     </ul>
                                     {/* <div className='cardDetail'>

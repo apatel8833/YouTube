@@ -14,6 +14,7 @@ export const formatCompactNumber = number => {
 
 
 export const formatDate = number=>{
+    
     if (number<8) {
         return number + " day  "
     }else if (number>=8 &&  number<15) {
@@ -24,29 +25,29 @@ export const formatDate = number=>{
     } else if (number>=24 &&  number<30) {
         return "3w "
     }else if (number>=30 &&  number<60) {
-        return "1m "
+        return "1month "
     }else if (number>=60 &&  number<90) {
-        return "2m "
+        return "2month "
     }else if (number>=90 &&  number<120) {
-        return "3m "
+        return "3month "
     }else if (number>=120 &&  number<150) {
-        return "4m "
+        return "4month "
     
     }else if (number>=150 &&  number<180) {
-        return "5m  "
+        return "5month  "
     }else if (number>=180 &&  number<210) {
-        return "6m "
+        return "6month "
     }else if (number>=210 &&  number<230) {
-        return "7m  "
+        return "7month  "
     }
     else if (number>=230 &&  number<260) {
-        return "8m "
+        return "8month "
     }else if (number>=260 &&  number<290) {
-        return "9m "
+        return "9month "
     }else if (number>=290 &&  number<310) {
-        return "10m "
+        return "10month "
     }else if (number>=310 &&  number<340) {
-        return "11m "
+        return "11month "
     }
     else if (number>=340 &&  number<365) {
         return "1y "

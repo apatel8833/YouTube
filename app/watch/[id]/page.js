@@ -20,6 +20,7 @@ const page = () => {
     const [first, setFirst] = useState([]);
     const [title, setTitle] = useState([]);
     const [view, setView] = useState([]);
+    const [videos, setVideos] = useState([]);
     const [related, setRelated] = useState([]);
     const { id } = useParams();
 
@@ -45,6 +46,8 @@ const page = () => {
             setFirst(data.items[0].snippet.thumbnails.maxres);
             setTitle(data.items[0].snippet);
             setView(data.items[0].statistics);
+            setVideos(data.items[0]);
+            console.log("videos",videos);
 
         } catch (error) {
             console.log(error);
@@ -63,14 +66,23 @@ const page = () => {
             <div className='watchvcont'>
                 <div className='left'>
                     <div className='frame'>
-                    <h1>{title.title}</h1>
-                        <img src={first.url} alt="image"></img>
+                     <iframe
+                        width="950"
+                        height="500"
+                        src={"https://www.youtube.com/embed/" + videos.id}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen>
+                    </iframe>
+
+                        {/* <video src={`https://www.youtube.com/embed/${videos.id}`} alt="image"></video> */}
                     </div>
                     <div className='lkcmnt'>
                         <div className='p-2 m-2'>
                             <div>
                                 <div className='font-medium text-[18px]'>{title.title}</div>
-                                <div className='mt-2 flex justify-between'>
+                                <div className='detl mt-2 flex justify-between'>
                                     <div className='flex'>
                                         <div className='flex'>
                                             <img className='rounded-full w-10 h-10' alt='thumbnail' src={first.url} />
@@ -79,7 +91,7 @@ const page = () => {
                                                 <div className='text-gray-500 text-[12px]'>{formatCompactNumber(view.viewCount)} Subscriber</div>
                                             </div>
                                         </div>
-                                        <button className='bg-black rounded-full px-4 ml-2 text-white'>Subscribe</button>
+                                        <button className='subbtn bg-black rounded-full px-4 ml-2 text-white'>Subscribe</button>
                                     </div>
                                     <div className='flex'>
                                         <button className='bg-gray-100 rounded-l-full px-4 hover:bg-gray-200'><Image alt='likeBtn' className='inline-block' src={likeIcon} /> 65K</button>

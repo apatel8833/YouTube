@@ -77,6 +77,7 @@ const Nav = () => {
           />
           <Link href="/">
           <Image
+          className='logo'
             src={youtubLogo}
           />
           </Link>
@@ -92,19 +93,17 @@ const Nav = () => {
             <div className='search'><i className="ri-search-line"></i></div>
           </form>
           <Image
+          className='svg'
             src={mike}
-            className='svg'
           />
         </div>
         <div className='right'>
           <Image
-            className='svg'
             src={create}
 
 
           />
           <Image
-            className='svg'
             src={notification}
           />
           <div className='absolute bg-red-700 text-white w-6 h-5 rounded-2xl border-2 border-white top-[9px] right-15 text-xs text-center'>9+</div>

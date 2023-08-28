@@ -8,7 +8,6 @@ const page = () => {
     <div className='Main'>
     <Sidebar/>
     <Body/>
-
     </div>
     </>
   )
