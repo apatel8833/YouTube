@@ -49,7 +49,7 @@ const Body = () => {
         return () => {
             window.removeEventListener('scroll', infiniteScroll, true);
         }
-    }, [nextPageToken, infiniteScroll]);
+    }, [nextPageToken]);
 
 
 

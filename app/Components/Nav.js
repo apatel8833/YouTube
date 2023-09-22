@@ -97,12 +97,15 @@ const Nav = () => {
             src={hamBurgerIcon}
             className='svg'
             onClick={() => setSidebar(!sidebar)}
+            alt='icon'
             
           />
           <Link href="/">
           <Image
           className='logo'
             src={youtubLogo}
+            alt='icon'
+
           />
           </Link>
         </div>

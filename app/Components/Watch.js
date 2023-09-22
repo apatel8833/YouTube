@@ -58,7 +58,7 @@ const Watch = () => {
     useEffect(() => {
         fetchData();
         relatedData();
-    }, [])
+    })
 
 
     return (
