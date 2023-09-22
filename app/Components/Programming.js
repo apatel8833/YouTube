@@ -6,6 +6,7 @@ import axios from 'axios';
 import { formatCompactNumber, formatDate } from '../utils/helper';
 import Loader from './Loader';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 
@@ -88,7 +89,7 @@ const Body = () => {
                             <Link className='card' key={i} href="#">
 
                                 <Image
-                                    src={elm?.snippet?.thumbnails?.standard?.url}
+                                    src={elm?.snippet?.thumbnails?.high?.url}
                                     alt='image'
                                     height={100}
                                     width={100}
@@ -97,7 +98,7 @@ const Body = () => {
 
                                 <ul className='flex justify-start items-start'>
                                     <Image
-                                        src={elm?.snippet?.thumbnails?.standard?.url}
+                                        src={elm?.snippet?.thumbnails?.high?.url}
                                         className='rounded-full w-7 h-7 mt-2 mr-2'
                                         alt='thumbnail'
                                         height={100}
