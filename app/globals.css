@@ -21,6 +21,10 @@ html,body{
    
 
 }
+
+.searchlist::-webkit-scrollbar{
+    display: none;
+}
 .navbar{
     position: fixed;
     /* position: relative; */
@@ -202,7 +206,7 @@ align-items: center;
     cursor: pointer;
 }
 
-.body>.card>img{
+.body>.card>.img{
     height: 60%;
     width: 100%;
     border-radius: 1vw;

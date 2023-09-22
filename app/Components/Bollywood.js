@@ -6,6 +6,7 @@ import axios from 'axios';
 import { formatCompactNumber, formatDate } from '../utils/helper';
 import Loader from './Loader';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 
@@ -13,7 +14,7 @@ const Body = () => {
     const [first, setFirst] = useState([]);
     const [nextPageToken, setNextPageToken] = useState("");
     const [loader, setLoader] = useState(true);
-    const [select,setSelect] = useState('')
+    const [select, setSelect] = useState('')
 
 
 
@@ -21,7 +22,7 @@ const Body = () => {
     const fetchData = async () => {
         try {
             const { data } = await axios.get(`${YOUTUBE_SEARCH_VIDEO_WITH_QUERY_API}&q=Bollywood`);
-            console.log("news",data.items);
+            console.log("news", data.items);
 
             setFirst((prev) => [...prev, ...data.items]);
             setLoader(false)
@@ -35,14 +36,7 @@ const Body = () => {
 
     useEffect(() => {
         fetchData();
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('scroll', infiniteScroll, true);
-        return () => {
-            window.removeEventListener('scroll', infiniteScroll, true);
-        }
-    }, [nextPageToken]);
+    })
 
     const infiniteScroll = () => {
         if (window.innerHeight + Math.round(document.documentElement.scrollTop) >= document.documentElement.scrollHeight) {
@@ -51,17 +45,26 @@ const Body = () => {
         }
     }
 
- 
+    useEffect(() => {
+        window.addEventListener('scroll', infiniteScroll, true);
+        return () => {
+            window.removeEventListener('scroll', infiniteScroll, true);
+        }
+    }, [nextPageToken, infiniteScroll]);
 
 
-  
+
+
+
+
+
 
 
     return (
         <>
             <div className='body'>
                 <div className='btns'>
-                <ul>
+                    <ul>
                         <Link href="/"><button value="All" >All</button></Link>
                         <Link href="/News"> <li>News</li></Link>
                         <Link href="/Gaming"><li>Gaming</li></Link>
@@ -86,23 +89,29 @@ const Body = () => {
                         return (
                             <Link className='card' key={i} href="#">
 
-                                    <img src={elm.snippet.thumbnails.high.url} alt='image'></img>
+                                <Image
+                                    src={elm?.snippet?.thumbnails?.standard?.url}
+                                    alt='image'
+                                    height={100}
+                                    width={100}
+                                    className='img'
+                                />
+                                <ul className='flex justify-start items-start'>
+                                    <Image
+                                        src={elm?.snippet?.thumbnails?.standard?.url}
+                                        className='rounded-full w-7 h-7 mt-2 mr-2'
+                                        alt='thumbnail'
+                                        height={100}
+                                        width={100}
 
-                                    <ul className='flex justify-start items-start'>
-                                        <img className='rounded-full w-7 h-7 mt-2 mr-2' alt='thumbnail' src={elm.snippet.thumbnails.default.url} />
-                                        <div>
-                                            <li className='font-semibold py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5'>{elm.snippet.title}</li>
-                                            <li className='text-gray-500 text-[13px]'>{elm.snippet.channelTitle}</li>
-                                            <li className='text-gray-500 text-[13px]'> {formatDate((Math.abs(new Date(elm.snippet.publishTime) - new Date()) / (60 * 60 * 24 * 1000)).toFixed(0))} ago</li>
-                                        </div>
-                                    </ul>
-                                    {/* <div className='cardDetail'>
-                                    <img src=''></img>
-                                    <div className='right'>
-                                        <h5>kapil sharma show</h5>
-                                        <small>Sony live App..</small>
-                                    </div> */}
-                                    {/* </div> */}
+                                    />
+                                    <div>
+                                        <li className='font-semibold py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5'>{elm.snippet.title}</li>
+                                        <li className='text-gray-500 text-[13px]'>{elm.snippet.channelTitle}</li>
+                                        <li className='text-gray-500 text-[13px]'> {formatDate((Math.abs(new Date(elm.snippet.publishTime) - new Date()) / (60 * 60 * 24 * 1000)).toFixed(0))} ago</li>
+                                    </div>
+                                </ul>
+                               
                             </Link>
 
                         )
