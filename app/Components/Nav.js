@@ -117,7 +117,8 @@ const Nav = () => {
               value={input}
               onChange={(e) => changeHandle(e.target.value)}
             />
-            <div className='search' type="submit" ><i className="ri-search-line"></i></div>
+            {/* <div className='search' ><i type="submit"  className="ri-search-line"></i></div> */}
+            <button className='search'  type="submit"><i  className="ri-search-line"></i></button>
           </form>
           <SearchList results={results} setInput={setInput} setSearch={setSearch} setResults={setResults}/>
           <Image
