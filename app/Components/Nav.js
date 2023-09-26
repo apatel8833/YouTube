@@ -34,6 +34,10 @@ const Nav = () => {
 
   const formHandle = (event) => {
     event.preventDefault();
+    if (!input || input.trim().length <=1) { 
+      alert("plese enter valid input");
+      
+    }
     fetchData();
     
   }
