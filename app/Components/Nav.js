@@ -146,12 +146,13 @@ const Nav = () => {
           />
           <div className='absolute bg-red-700 text-white w-6 h-5 rounded-2xl border-2 border-white top-[9px] right-15 text-xs text-center'>9+</div>
           <div className='prf'>
-            <Image
+            {/* <Image
             src='https://yt3.ggpht.com/VWNiXXcfWWfkM91CQ70NVbRWo7DG9eChKotVlVqoBHiI3Fqfg2EH18IxkB9SWRjtCH2L8UIEcA=s88-c-k-c0x00ffffff-no-rj'
             alt='image'
             height={100}
             width={100}
-            />
+            /> */}
+            <img src='https://yt3.ggpht.com/VWNiXXcfWWfkM91CQ70NVbRWo7DG9eChKotVlVqoBHiI3Fqfg2EH18IxkB9SWRjtCH2L8UIEcA=s88-c-k-c0x00ffffff-no-rj' alt='image'></img>
            
           </div>
         </div>
