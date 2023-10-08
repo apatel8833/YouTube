@@ -88,24 +88,35 @@ const Body = () => {
                     first.map((elm, i) => {
                         return (
                             <Link className='card' key={i} href="#">
-                                <Image
+                                {/* <Image
                                     src={elm?.snippet?.thumbnails?.high?.url}
                                     alt='image'
                                     height={100}
                                     width={100}
                                     className='img'
-                                />
+                                /> */}
+                                 <img
+                                  src={elm?.snippet?.thumbnails?.high?.url}
+                                  alt='image'
+                                  className='img'
+                                ></img>
 
 
                                 <ul className='flex justify-start items-start'>
-                                    <Image
+                                    {/* <Image
                                         src={elm?.snippet?.thumbnails?.high?.url}
                                         className='rounded-full w-7 h-7 mt-2 mr-2'
                                         alt='thumbnail'
                                         height={100}
                                         width={100}
 
-                                    />
+                                    /> */}
+                                     <img
+                                     src={elm?.snippet?.thumbnails?.high?.url}
+                                     className='rounded-full w-7 h-7 mt-2 mr-2'
+                                     alt='thumbnail'
+                                    >
+                                    </img>
 
                                     <div>
                                         <li className='font-semibold py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5'>{elm.snippet.title}</li>

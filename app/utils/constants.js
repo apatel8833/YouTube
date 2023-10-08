@@ -1,7 +1,7 @@
-// export const API_KEY = "AIzaSyCERZDyfPzmGEjhw2XtAYoTxzgYBw4zfy4"
+export const API_KEY = "AIzaSyCERZDyfPzmGEjhw2XtAYoTxzgYBw4zfy4"
 // export const API_KEY = "AIzaSyDG8fUcQ2Q3wCOlsy5_hNZFyNoKG2WvPgM"
 
-export const API_KEY = "AIzaSyAOE8c0Ce0Gk0sH3avHe6yQ5zmMvFExOQU"
+// export const API_KEY = "AIzaSyAOE8c0Ce0Gk0sH3avHe6yQ5zmMvFExOQU"
 
 // export const API_KEY = "AIzaSyA1AEzfMZaeUYvgRLauF-AaJx9e9Ds2MCY"
 

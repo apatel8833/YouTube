@@ -87,13 +87,20 @@ const Watch = () => {
                                 <div className='detl mt-2 flex justify-between'>
                                     <div className='flex'>
                                         <div className='flex'>
-                                            <Image
+                                            {/* <Image
                                             className='rounded-full w-10 h-10'
                                              alt='thumbnail' 
                                              src={first.url}
                                              height={100}
                                              width={100}
-                                            />
+                                            /> */}
+                                            <img
+                                            src={first.url}
+                                            className='rounded-full w-10 h-10'
+                                            alt='thumbnail' 
+                                            >
+                                            
+                                            </img>
                                             
                                             <div className='flex flex-col justify-center ml-2'>
                                                 <div className='font-bold text-[16px]'>{title.channelTitle}</div>
@@ -123,12 +130,17 @@ const Watch = () => {
                                 <>
                                 <Link key={elm.i} href={`/watch/${elm.id}`}>
                                     <div className='px-3 m-2 mt-[20px] flex'>
-                                        <Image
+                                        {/* <Image
                                         className='rounded-xl w-[168px] h-[94px] ' alt='thumbnail' 
                                         src={elm?.snippet?.thumbnails?.standard?.url}
                                         height={100}
                                         width={100}
-                                        />
+                                        /> */}
+                                        <img
+                                         className='rounded-xl w-[168px] h-[94px] ' alt='thumbnail' 
+                                         src={elm?.snippet?.thumbnails?.standard?.url}
+                                        >
+                                        </img>
                                         
                                         <ul className='flex flex-col justify-start ml-2 w-60'>
                                             <li className='font-medium py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5'>{elm.snippet.title}</li>

@@ -20,14 +20,20 @@ const Searchres = () => {
                             <>
                                 <Link key={elm.i} href={`/watch/${elm.id.videoId}`} >
                                     <div className=' sdtls px-3 m-4 flex'>
-                                        <Image
+                                        {/* <Image
                                          className='rounded-lg w-[400px] h-[210px] '
                                          src={elm.snippet.thumbnails.medium.url}
                                          height={100}
                                          width={100}
                                          alt='thumbnail' 
 
-                                        />
+                                        /> */}
+                                        <img
+                                         className='rounded-lg w-[400px] h-[210px] '
+                                         src={elm.snippet.thumbnails.medium.url}
+                                         alt='thumbnail' 
+                                        >
+                                        </img>
                                     
                                         <ul className='scont flex flex-col justify-start ml-5 w-96'>
                                             <li className=' py-2 text-2xl '>{elm.snippet.title}</li>

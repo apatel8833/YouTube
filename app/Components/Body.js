@@ -94,24 +94,33 @@ const Body = () => {
                             <Link className='card' key={i} href={`/watch/${elm.id}`}>
 
                               
-                                <Image
+                                {/* <Image
                                 src={elm?.snippet?.thumbnails?.standard?.url} 
                                 alt='image'
                                 height={100}
                                 width={100}
                                 className='img'
-                                />
+                                /> */}
+                                <img src={elm?.snippet?.thumbnails?.standard?.url}
+                                alt='image'
+                                className='img'
+                                ></img>
                                 
 
                                 <ul className='flex justify-start items-start'> 
-                                <Image
+                                {/* <Image
                                  src={elm?.snippet?.thumbnails?.standard?.url}
                                  className='rounded-full w-7 h-7 mt-2 mr-2'
                                   alt='thumbnail'
                                   height={100}
                                   width={100}
 
-                                />   
+                                />    */}
+                                <img
+                                src={elm?.snippet?.thumbnails?.standard?.url}
+                                className='rounded-full w-7 h-7 mt-2 mr-2'
+                                alt='thumbnail'
+                                ></img>
                                    
                                     <div>
                                         <li className='font-semibold py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5'>{elm.snippet.title}</li>
